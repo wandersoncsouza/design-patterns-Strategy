@@ -1,18 +1,21 @@
-## Getting Started
+## Desafio de Projeto do Lab's (Explorando Padrões de Projetos na Prática com Java) -> Potência Tech powered by iFood - Java Beginners
+ 
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+# Design Pattern - Strategy
 
-## Folder Structure
+Neste projeto foi tentado implementar um simples "Carrinho de Compras" que tem duas estrategias de pagamento. 
+- Usando uma conta PayPal 
+- Usando um cartão de crédito ou débito
 
-The workspace contains two folders by default, where:
+Primeiro foi criado uma interface para a estrategia de pagamento para pagar o montante passado como argumento (PagamentoEstrategi.java)
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+Depois foi criado uma implementação para pagamento usando cartão de credito/debito ou paypal
+(EstrategiaCartaoCredito.java/ EstrategiaPaypal.java)
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Depois foi implementado o CarrinhoCompra.java com seu método de pagamento que iremos informar a(s) forma de pagamento
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+Observamos que o método do carrinho solicita o algoritimo de pagamento como argumento e não o guarda como instancia da variavel.
 
-## Dependency Management
+Resumo: 
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+Com o padrão strategy, quando houver algum tipo de mudança no formato do pagamento, não precisamos fazer nenhuma alteração na classe principal (CarrinhoCompra), é só alterar as estrategias ou criar uma nova.
